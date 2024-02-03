@@ -57,7 +57,21 @@ const Home: React.FC = () => {
           <FlatList
             horizontal
             data={places}
+            overScrollMode='never'
             renderItem={({ item: place }) => <Card place={place} />}
+          />
+        </ListPlaces>
+      </Section>
+      <Section>
+        <Title>
+          Recommended
+        </Title>
+        <ListPlaces>
+          <FlatList
+            horizontal
+            overScrollMode='never'
+            data={[...(places || [])].reverse()}
+            renderItem={({ item: place }) => <Card place={place} recommended />}
           />
         </ListPlaces>
       </Section>

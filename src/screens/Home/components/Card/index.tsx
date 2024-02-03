@@ -22,11 +22,12 @@ const placeImages = {
 
 interface IProps {
   place: Place;
+  recommended?: boolean;
 };
 
-const Card: React.FC<IProps> = ({ place }) => {
+const Card: React.FC<IProps> = ({ place, recommended = false }) => {
   return (
-    <Wrapper>
+    <Wrapper recommended={recommended}>
       {placeImages[place.imageName as keyof typeof placeImages]}
       <Container>
         <Title>{place.name}</Title>

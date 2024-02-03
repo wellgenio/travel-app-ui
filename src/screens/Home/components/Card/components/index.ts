@@ -2,10 +2,25 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
-export const Wrapper = styled.View`
-  height: 220px;
+interface IProp {
+  recommended: boolean;
+}
+
+export const Wrapper = styled.View<IProp>`
+  ${({ recommended }) => {
+    if(recommended) {
+      return `
+        width: ${Dimensions.get('screen').width - 40}px;
+        height: 100px;
+      `;
+    } else {
+      return `
+        width: ${Dimensions.get('screen').width / 2}px;
+        height: 220px;
+      `;
+    }
+  }}; 
   margin-right: 10px;
-  width: ${Dimensions.get('screen').width / 2}px;
   overflow: hidden;
   border-radius: 10px;
   position: relative;
