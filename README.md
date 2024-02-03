@@ -17,15 +17,15 @@
 <table cellspacing="0" cellpadding="0">
         <tr>
     <td class="first">
-            <img src="https://github.com/wellgenio/travel-app-ui/blob/src/assets/screenshot/01.png" height= "400px">
+            <img src="https://github.com/wellgenio/travel-app-ui/blob/main/src/assets/screenshot/01.png" height= "400px">
     </td>
     <td class="second">
             </br>
-            <img src="https://github.com/wellgenio/travel-app-ui/blob/src/assets/screenshot/02.png" height= "400px">
+            <img src="https://github.com/wellgenio/travel-app-ui/blob/main/src/assets/screenshot/02.png" height= "400px">
     </td>
     <td class="third">
             </br>
-            <img src="https://github.com/wellgenio/travel-app-ui/blob/src/assets/screenshot/03.png" height= "400px">
+            <img src="https://github.com/wellgenio/travel-app-ui/blob/main/src/assets/screenshot/03.png" height= "400px">
     </td>
   </tr>
 </table>
