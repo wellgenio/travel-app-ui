@@ -41,7 +41,8 @@ export const InputContainer = styled.View`
 `;
 
 export const ListCategories = styled.View`
-  margin: 40px 20px;
+  margin: 10px 20px;
+  margin-top: 40px;
   justify-content: space-between;
   flex-direction: row;
 `;
@@ -52,4 +53,17 @@ export const CategoryIcon = styled.View`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.color.secondary};
+`;
+
+export const Section = styled.View`
+  padding: 10px 20px;
+`;
+
+export const Title = styled.Text`
+  font-weight: bold;
+  font-size: 17px;
+`;
+
+export const ListPlaces = styled.View`
+  padding-top: 20px;
 `;

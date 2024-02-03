@@ -1,9 +1,24 @@
 import React from 'react';
-import { StatusBar, TextInput, View } from 'react-native';
+import { StatusBar, TextInput, FlatList, View, Text } from 'react-native';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 import theme from '../../theme';
-import { Wrapper, Header, HeaderTitle, Nav, InputContainer, ListCategories, CategoryIcon } from './components';
+import {
+  Wrapper,
+  Header,
+  HeaderTitle,
+  Nav,
+  InputContainer,
+  ListCategories,
+  CategoryIcon,
+  Section,
+  Title,
+  ListPlaces
+} from './components';
+import { Card } from './components/Card';
+import { usePlaces } from '../../hooks/usePlaces';
+
+const places = [{}, {}];
 
 const categoryIcons = [
   <MaterialIcons name="flight" size={24} color={theme.color.primary} />,
@@ -13,6 +28,8 @@ const categoryIcons = [
 ];
 
 const Home: React.FC = () => {
+  const { places } = usePlaces();
+
   return (
     <Wrapper>
       <StatusBar translucent backgroundColor="rgba(0,0,0,0)" />
@@ -32,6 +49,18 @@ const Home: React.FC = () => {
       <ListCategories>
         {categoryIcons.map((icon, index) => <CategoryIcon key={index}>{icon}</CategoryIcon>)}
       </ListCategories>
+      <Section>
+        <Title>
+          Places
+        </Title>
+        <ListPlaces>
+          <FlatList
+            horizontal
+            data={places}
+            renderItem={({ item: place }) => <Card place={place} />}
+          />
+        </ListPlaces>
+      </Section>
     </Wrapper>
   );
 };
