@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react';
-import { View, Text, ImageBackground, Dimensions } from 'react-native';
+import React from 'react';
+
+import { placeImages } from '../../../../components';
 import { Place } from '../../../../types/place';
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import {
   Wrapper,
   Container,
@@ -12,13 +12,6 @@ import {
   InfoText,
   InfoTextWrapper
 } from './components';
-
-const placeImages = {
-  'location1': <ImageBackground style={{ flex: 1 }} source={require('../../../../assets/images/location1.jpg')} />,
-  'location2': <ImageBackground style={{ flex: 1 }} source={require('../../../../assets/images/location2.jpg')} />,
-  'location3': <ImageBackground style={{ flex: 1 }} source={require('../../../../assets/images/location3.jpg')} />,
-  'location4': <ImageBackground style={{ flex: 1 }} source={require('../../../../assets/images/location4.jpg')} />
-};
 
 interface IProps {
   place: Place;

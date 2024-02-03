@@ -1,6 +1,7 @@
 import React from 'react';
-import { StatusBar, TextInput, FlatList, View, Text } from 'react-native';
+import { StatusBar, TextInput, FlatList, View, Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { StackScreenProps } from '@react-navigation/stack';
 
 import theme from '../../theme';
 import {
@@ -27,7 +28,9 @@ const categoryIcons = [
   <MaterialIcons name="place" size={24} color={theme.color.primary} />,
 ];
 
-const Home: React.FC = () => {
+export interface HomeScreenProps extends StackScreenProps<any, any> { };
+
+const Home: React.FC<HomeScreenProps> = ({ navigation }) => {
   const { places } = usePlaces();
 
   return (
@@ -58,7 +61,11 @@ const Home: React.FC = () => {
             horizontal
             data={places}
             overScrollMode='never'
-            renderItem={({ item: place }) => <Card place={place} />}
+            renderItem={({ item: place }) => (
+              <TouchableOpacity onPress={() => navigation.push('Details', { place })}>
+                  <Card place={place} />
+              </TouchableOpacity>
+            )}
           />
         </ListPlaces>
       </Section>
@@ -71,7 +78,11 @@ const Home: React.FC = () => {
             horizontal
             overScrollMode='never'
             data={[...(places || [])].reverse()}
-            renderItem={({ item: place }) => <Card place={place} recommended />}
+            renderItem={({ item: place }) => (
+              <TouchableOpacity>
+                <Card place={place} recommended />
+              </TouchableOpacity>
+            )}
           />
         </ListPlaces>
       </Section>
